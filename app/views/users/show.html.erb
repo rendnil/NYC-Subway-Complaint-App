@@ -1,0 +1,27 @@
+<h1>Profile Page for <%= @user.name %></h1>
+
+<h3><%= flash[:notice] %></h3>
+
+
+ <%= image_tag @user.photo %>
+
+  <%= button_to "New Station Complaint", new_station_complaint_path, method: :get%>
+  <%= button_to "New Train Complaint", new_train_complaint_path, method: :get%>
+  <ul>
+  <% @user.station_complaints.each do |sc|%>
+    <li><%= link_to sc.title, station_complaint_path(sc) %> <%= sc.created_at %></li>
+  <% end %>
+  </ul>
+
+
+<br>
+
+<% if current_user.id == @user.id %>
+  <hr>
+  <%= button_to "Delete Account", @user, method: :delete %>
+  <br>
+  <%= button_to "Edit Account", edit_user_path(@user), method: :get %>
+  <br>
+<% end %>
+
+<%= link_to "Back to All Users", users_path %>

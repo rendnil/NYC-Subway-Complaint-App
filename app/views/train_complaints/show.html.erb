@@ -1,0 +1,14 @@
+<h1>show page for <%= link_to "Line #{@train_complaint.train.line} Complaint", train_path(@train_complaint.train) %></h1>
+<h2><%= "By #{@train_complaint.user.name}" %></h2>
+
+
+  <ul>
+
+  <li>
+  Title: <%= @train_complaint.title  %>
+  <br>
+  <p>Description: <%= @train_complaint.description %></p>
+  <p>created by: <%= link_to @train_complaint.user.name, user_path(@train_complaint.user) %></p>
+  <p>Created at:  <%= @train_complaint.created_at %></p>
+  </li>
+</ul>

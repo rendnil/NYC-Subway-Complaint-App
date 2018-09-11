@@ -1,0 +1,22 @@
+<h2>create new Station Complaint</h2>
+
+<%= form_for @station_complaint do |f| %>
+  <div >
+    <%= f.label :title  %>
+    <%= f.text_field :title %>
+  </div>
+  <div >
+    <%= f.label :description  %>
+    <%= f.text_field :description%>
+  </div>
+  <div >
+    <%= f.label "Station"%>
+    <%= f.collection_select(:station_id, Station.all, :id, :name) %>
+  </div>
+  <div>
+    <!-- hidden_field(:object, :field, :value => params[:requestval]) -->
+    <%= f.hidden_field(:user_id, {value: session[:user_id]}) %>
+    <%= f.submit %>
+  </div>
+
+<% end %>

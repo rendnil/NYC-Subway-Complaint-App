@@ -1,0 +1,18 @@
+<h1><%= "Station Name: #{@station.name}" %></h1>
+
+<h2>Complaints</h2>
+
+  <ol>
+
+<% @station.station_complaints.each do |complaint|  %>
+
+  <li>
+  <%= complaint.title  %>
+  <br>
+  <p><%= complaint.description %></p>
+  <%= complaint.created_at %>
+  </li>
+
+
+<%end  %>
+</ol>

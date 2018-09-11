@@ -1,0 +1,24 @@
+<h1><%= "Train Name: #{@train.line}" %></h1>
+
+<h2>Complaints</h2>
+
+  <ol>
+
+<% @train.train_complaints.each do |complaint|  %>
+  <br>
+  <li>
+  <%="User: #{complaint.user.name}" %>
+  <br>
+  <%="Title: #{complaint.title}" %>
+  <br>
+
+  <p>Description:
+    <br>
+    <%= complaint.description %></p>
+  <%= complaint.created_at %>
+
+  </li>
+
+
+<%end  %>
+</ol>
