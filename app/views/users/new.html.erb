@@ -1,3 +1,6 @@
+  <h1>NEW USER</h1>
+
+
 <%= form_for @user do |f| %>
   <p><%= @user.errors.count %> prevented signup</p>
 
@@ -9,13 +12,13 @@
 
   <%= f.label :username %>
   <%= f.text_field :name %>
-
+<br>
   <%= f.label :password %>
   <%= f.text_field :password %>
-
-  <%= f.label :avatar %>
+<br>
+  <%= f.label "Profile Picture URL" %>
   <%= f.text_field :photo %>
-
+<br>
   <%= f.submit %>
 
 <% end %>

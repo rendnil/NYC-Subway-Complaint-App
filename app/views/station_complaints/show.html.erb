@@ -1,13 +1,11 @@
-<h1>show page for <%= link_to @station_complaint.station.name, station_path(@station_complaint.station) %></h1>
+<h1>Complaint For <%= link_to("#{@station_complaint.station.name} Station", station_path(@station_complaint.station))%></h1>
+<h2>User: <%= link_to @station_complaint.user.name, user_path(@station_complaint.user) %></h2>
 
-
-  <ul>
-
-  <li>
-  Title: <%= @station_complaint.title  %>
+  <h3>Title:</h3>
+  <%= @station_complaint.title  %>
   <br>
-  <p>Description: <%= @station_complaint.description %></p>
-  <p>created by: <%= link_to @station_complaint.user.name, user_path(@station_complaint.user) %></p>
-  <p>Created at:  <%= @station_complaint.created_at %></p>
-  </li>
-</ul>
+  <br>
+  <h3>Description:</h3>
+  <p><%= @station_complaint.description %></p>
+  <h3>Created at:</h3>
+  <p><%= @station_complaint.created_at.strftime("%m/%d/%Y at %l:%M:%S %p") %></p>
