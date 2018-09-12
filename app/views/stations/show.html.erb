@@ -1,18 +1,27 @@
-<h1><%= "Station Name: #{@station.name}" %></h1>
+<body>
 
-<h2>Complaints</h2>
+<div class="container">
+  <h2>Complaints for <%= "#{@station.name}" %></h2>
 
-  <ol>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Station</th>
+        <th>Title</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @station.station_complaints.each do |complaint|  %>
+      <tr>
+        <td><%=link_to(complaint.title, station_complaint_path(complaint))%></td>
+        <td><%=link_to(complaint.description, station_complaint_path(complaint))%></td>
+        <td><%= complaint.created_at.strftime("%m/%d/%Y at %l:%M:%S %p") %></td>
 
-<% @station.station_complaints.each do |complaint|  %>
+      </tr>
+      <%end  %>
+      </tbody>
+  </table>
+</div>
 
-  <li>
-  <%= complaint.title  %>
-  <br>
-  <p><%= complaint.description %></p>
-  <%= complaint.created_at %>
-  </li>
-
-
-<%end  %>
-</ol>
+</body>

@@ -1,24 +1,49 @@
-  <h1>NEW USER</h1>
+<div class="row no-gutters">
+  <div class="col-12 col-sm-6 col-md-8">
+
+    <img src="/login_page2.jpg" alt="" class="img-responsive">
 
 
-<%= form_for @user do |f| %>
-  <p><%= @user.errors.count %> prevented signup</p>
 
-  <ol>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ol>
+  </div>
 
-  <%= f.label :username %>
-  <%= f.text_field :name %>
-<br>
-  <%= f.label :password %>
-  <%= f.text_field :password %>
-<br>
-  <%= f.label "Profile Picture URL" %>
-  <%= f.text_field :photo %>
-<br>
-  <%= f.submit %>
+  <div class="col-6 col-md-4">
+    <div class="input-control">
 
-<% end %>
+
+      <h3><%= flash[:notice] %></h3>
+
+
+      <h1>Create A New Profile</h1>
+      <%= form_for @user do |f| %>
+      <p>
+        <% if @user.errors.any? %>
+        <div class="alert alert-danger">
+        Unable To Complete Signup:</p>
+
+      <ol>
+        <% @user.errors.full_messages.each do |msg| %>
+        <li>
+          <%= msg %>
+        </li>
+        <% end %>
+      </div>
+        <% end %>
+      </ol>
+      <%= f.label :username %>
+      <%= f.text_field :name, {class:"form-control"} %>
+      <br>
+      <%= f.label :password %>
+      <%= f.password_field :password, {class:"form-control"} %>
+      <br>
+
+      <br>
+      <%= f.submit("Create My Account", {class: "btn btn-info btn-block"}) %>
+
+      <% end %>
+
+      <br>
+
+    </div>
+  </div>
+</div>

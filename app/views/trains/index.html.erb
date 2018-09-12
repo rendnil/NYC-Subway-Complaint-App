@@ -1,14 +1,10 @@
-<h1>Trains</h1>
-
-<ul>
-
-<%@trains.each do |train|  %>
-  <li>
-    <%=link_to(train.line, train_path(train))%>
-
-  <%end  %>
-
-  </li>
-
-
-</ul>
+<div class="container">
+  <h1>List of Trains</h1>
+  <div class="list-group">
+    <%@trains.each do |train|  %>
+    <div class="list-group-item">
+      <h4><%=link_to(train.line, train_path(train))%> Line: <span class="badge"> <%= (train.train_complaints.count) %></span></h4>
+      </div>
+      <%end  %>
+</div>
+</div>

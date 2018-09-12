@@ -6,5 +6,5 @@ class User < ApplicationRecord
   has_many :stations, through: :station_complaints
 
     has_secure_password
-    validates :name, uniqueness: { case_sensitive: false }
+    validates :name, { uniqueness: { case_sensitive: false }, presence: true }
 end

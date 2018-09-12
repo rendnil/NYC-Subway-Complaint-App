@@ -1,14 +1,23 @@
-<h2>All Users</h2>
+<div class="container">
+  <h1>List of Users</h1>
+  <div class="list-group">
+    <%@users.each do |user|  %>
+    <!-- <%=link_to(user.name, user_path(user), class: "list-group-item")%> -->
+    <div class:"list-group-item">
+      <div class="media">
+        <div class="media-left">
+          <img src=<%= user.photo  %> class="media-object" height="50" width="50">
 
-<ul>
+      </div>
+        <div class="media-body">
+          <h3 class="media-heading"><%=link_to(user.name, user_path(user))%>   <span class="badge"> <%= (user.train_complaints.count + user.station_complaints.count) %></span></h3>
+          <p>Location:
+            <%= user.location %>
+          </p>
+        </div>
+      </div>
+    </div>
 
-<%@users.each do |user|  %>
-  <li>
-    <%=link_to(user.name, user_path(user))%>
-
-  <%end  %>
-
-  </li>
-
-
-</ul>
+    <%end  %>
+  </div>
+</div>

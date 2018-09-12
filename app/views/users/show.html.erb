@@ -1,75 +1,88 @@
-
-
 <h3><%= flash[:notice] %></h3>
 
 <div class="media">
-<div class="media-left">
-  <img src=<%=@user.photo  %> class="media-object" height="250" width="250">
-</div>
-<div class="media-body">
-  <h1 class="media-heading"><%= @user.name %></h1>
-  <p><%= @user.location %></p>
+  <div class="media-left">
+    <img src=<%=@user.photo  %> class="media-object" height="250" width="250">
 
 </div>
+  <div class="media-body">
+    <h1 class="media-heading"><%= @user.name %></h1>
+    <p>
+      <%= @user.location %>
+    </p>
+
+  </div>
 </div>
 
 
 
- <body>
+<body>
 
- <div class="container">
-   <h2>Station Complaints</h2>
+  <div class="container">
+    <h2>Station Complaints</h2>
 
-   <table class="table table-hover">
-     <thead>
-       <tr>
-         <th>Station</th>
-         <th>Title</th>
-         <th>Date</th>
-       </tr>
-     </thead>
-     <tbody>
-       <% @user.station_complaints.each do |sc|%>
-       <tr>
-         <td><%= link_to(sc.station.name, station_path(sc.station)) %></td>
-         <td><%= link_to(sc.title, station_complaint_path(sc)) %></td>
-         <td><%= sc.created_at.strftime("%m/%d/%Y at %l:%M:%S %p") %></td>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Station</th>
+          <th>Title</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user.station_complaints.each do |sc|%>
+        <tr>
+          <td>
+            <%= link_to(sc.station.name, station_path(sc.station)) %>
+          </td>
+          <td>
+            <%= link_to(sc.title, station_complaint_path(sc)) %>
+          </td>
+          <td>
+            <%= sc.created_at.strftime("%m/%d/%Y at %l:%M:%S %p") %>
+          </td>
 
-       </tr>
-       <%end  %>
-       </tbody>
-   </table>
- </div>
+        </tr>
+        <%end  %>
+      </tbody>
+    </table>
+  </div>
 
- </body>
+</body>
 
- <body>
+<body>
 
- <div class="container">
-   <h2>Train Complaints</h2>
+  <div class="container">
+    <h2>Train Complaints</h2>
 
-   <table class="table table-hover">
-     <thead>
-       <tr>
-         <th>Line</th>
-         <th>Title</th>
-         <th>Date</th>
-       </tr>
-     </thead>
-     <tbody>
-       <% @user.train_complaints.each do |tc|%>
-       <tr>
-         <td><%= link_to(tc.train.line, tc.train) %></td>
-         <td><%= link_to(tc.title, train_complaint_path(tc)) %></td>
-         <td><%= tc.created_at.strftime("%m/%d/%Y at %l:%M:%S %p") %></td>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Line</th>
+          <th>Title</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user.train_complaints.each do |tc|%>
+        <tr>
+          <td>
+            <%= link_to(tc.train.line, tc.train) %>
+          </td>
+          <td>
+            <%= link_to(tc.title, train_complaint_path(tc)) %>
+          </td>
+          <td>
+            <%= tc.created_at.strftime("%m/%d/%Y at %l:%M:%S %p") %>
+          </td>
 
-       </tr>
-       <%end  %>
-       </tbody>
-   </table>
- </div>
+        </tr>
+        <%end  %>
+      </tbody>
+    </table>
+  </div>
 
- </body>
+</body>
 
 
 <br>
@@ -79,8 +92,9 @@
 
 
   <br>
-<%= button_to "Edit Account", edit_user_path(@user), method: :get, class: "btn btn-success" %>
-<%= button_to "Delete Account", @user, method: :delete, class: "btn btn-danger" %>
+  <%= button_to "Edit Account", edit_user_path(@user), method: :get, class: "btn btn-success btn-block" %>
+  <br>
+  <%= button_to "Delete Account", @user, method: :delete, class: "btn btn-danger btn-block" %>
 
 </div>
 

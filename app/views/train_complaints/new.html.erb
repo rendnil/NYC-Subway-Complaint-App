@@ -1,22 +1,28 @@
-<h2>create new Train Complaint</h2>
+<div class="container">
+  <h1>Lodge A Formal Train Complaint</h1>
+  <div class="form-group">
+    <br>
+    <%= form_for @train_complaint do |f| %>
+    <div>
+      <h4><%= f.label :Title %></h4>
+      <%= f.text_field :title, {class:"form-control", placeholder:"Complaint Title"} %>
+    </div>
+    <br>
+    <div>
+      <h5><%= f.label :Description  %></h5>
+      <%= f.text_area :description, {class:"form-control", placeholder:"Complaint Description"} %>
+    </div>
+    <br>
+    <div>
+      <%= f.label "Train"%>
+      <%= f.collection_select(:train_id, Train.all, :id, :full_name, {class:"custom-select", style:"width:200px;"}) %>
 
-<%= form_for @train_complaint do |f| %>
-  <div >
-    <%= f.label :title  %>
-    <%= f.text_field :title %>
-  </div>
-  <div >
-    <%= f.label :description  %>
-    <%= f.text_area :description%>
-  </div>
-  <div >
-    <%= f.label "Train"%>
-    <%= f.collection_select(:train_id, Train.all, :id, :line) %>
-  </div>
-  <div>
-    <!-- hidden_field(:object, :field, :value => params[:requestval]) -->
-    <%= f.hidden_field(:user_id, {value: session[:user_id]}) %>
-    <%= f.submit %>
-  </div>
+    </div>
+    <br>
+      <!-- hidden_field(:object, :field, :value => params[:requestval]) -->
+      <%= f.hidden_field(:user_id, {value: session[:user_id]}) %>
+      <%= f.submit("Submit Complaint", {class:"btn btn-danger"}) %>
+    </div>
 
-<% end %>
+    <% end %>
+  </div>
