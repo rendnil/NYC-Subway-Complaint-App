@@ -50,7 +50,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    flash[:notice] = "Account for #{@user.username} deleted 😭"
+    flash[:notice] = "Account for #{@user.name} deleted 😭"
     redirect_to(users_path)
   end
 
