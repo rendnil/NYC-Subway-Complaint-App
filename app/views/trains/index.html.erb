@@ -1,5 +1,11 @@
+
+
+
+
 <div class="container">
   <h1>Trains</h1>
+  <%= area_chart Train.most_complaints, xtitle: "Line", ytitle: "Complaints", width: "100%" %>
+
   <div class="list-group">
     <%@trains.each do |train|  %>
     <div class="list-group-item">

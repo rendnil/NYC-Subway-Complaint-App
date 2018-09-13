@@ -1,5 +1,6 @@
 <div class="container">
-  <h1>List of Users</h1>
+  <h1>Users</h1>
+  <%= column_chart User.most_complaints, ytitle: "Total Complaints", width: "100%" %>
   <div class="list-group">
     <%@users.each do |user|  %>
     <!-- <%=link_to(user.name, user_path(user), class: "list-group-item")%> -->
