@@ -1,27 +1,36 @@
-<body>
-
 <div class="container">
-  <h2>Complaints for <%= "#{@station.name}" %></h2>
+  <h1><%= "#{@station.name}" %> Complaints</h1>
+  <br>
+  <div class="list-group">
+    <div class:"list-group-item">
+    <% @station.station_complaints.each do |complaint|  %>
+      <div class="media">
+        <div class="media-left">
+          <img src=<%= complaint.user.photo  %> class="media-object" height="120" width="120">
+        </div>
 
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Station</th>
-        <th>Title</th>
-        <th>Date</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @station.station_complaints.each do |complaint|  %>
-      <tr>
-        <td><%=link_to(complaint.title, station_complaint_path(complaint))%></td>
-        <td><%=link_to(complaint.description, station_complaint_path(complaint))%></td>
-        <td><%= complaint.created_at.strftime("%m/%d/%Y at %l:%M:%S %p") %></td>
+        <div class="media-body">
+          <h3 class="media-heading"><%=link_to(complaint.user.name, user_path(complaint.user))%></h3>
+          <h6 class="media-footer"><%= complaint.created_at.strftime("%m/%d/%Y at %l:%M:%S %p") %></h6>
+          <div class="panel-group">
+            <div class="panel panel-danger">
+              <div class="panel-heading">
+                <h6 class="panel-title">
+                  <h5><a data-toggle="collapse" href="#collapse<%= complaint.id %>"><%="#{complaint.title}" %></a></h5>
+                </h6>
+              </div>
+              <div id= "collapse<%= complaint.id %>" class="panel-collapse collapse">
+                <div class="panel-body">Full Complaint:
+                  <%= complaint.description %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      </tr>
+
+      </div>
       <%end  %>
-      </tbody>
-  </table>
+    </div>
+  </div>
 </div>
-
-</body>

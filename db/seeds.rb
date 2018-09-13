@@ -386,7 +386,7 @@ ts198 = TrainStation.create(train_id: t_J.id, station_id: s52.id)
 ts199 = TrainStation.create(train_id: t_Z.id, station_id: s52.id)
 
 
-s53 = Station.create(name: "SChristopher Street–Sheridan Square")
+s53 = Station.create(name: "Christopher Street–Sheridan Square")
 ts200 = TrainStation.create(train_id: t_1.id, station_id: s53.id)
 ts201 = TrainStation.create(train_id: t_2.id, station_id: s53.id)
 
@@ -508,32 +508,59 @@ ts266 = TrainStation.create(train_id: t_1.id, station_id: s69.id)
 puts "making users"
 
   20.times do
-    User.create(name: Faker::Simpsons.unique.character, password: "hotdog", photo: Faker::Avatar.image, age: rand(0..10), location: Faker::Simpsons.unique.location)
+    User.create(name: Faker::StarWars.unique.character, password: "hotdog", photo: Faker::Avatar.image, age: rand(0..10), location: Faker::StarWars.unique.planet)
 
   end
 
 puts "done making users"
 
 puts "making train complaints"
-  50.times do
-    TrainComplaint.create(title: Faker::BojackHorseman.quote, description: Faker::Simpsons.quote, user_id:User.all.sample.id, train_id: Train.all.sample.id)
+  15.times do
+    TrainComplaint.create(title: Faker::BojackHorseman.unique.quote, description: Faker::GreekPhilosophers.unique.quote, user_id:User.all.sample.id, train_id: Train.all.sample.id)
+  end
+  10.times do
+    TrainComplaint.create(title: Faker::FamilyGuy.unique.quote, description: Faker::StarWars.unique.quote, user_id:User.all.sample.id, train_id: Train.all.sample.id)
+  end
+  15.times do
+    TrainComplaint.create(title: Faker::MichaelScott.unique.quote, description: Faker::StarWars.unique.quote, user_id:User.all.sample.id, train_id: Train.all.sample.id)
+  end
+  15.times do
+    TrainComplaint.create(title: Faker::Robin.unique.quote, description: Faker::GreekPhilosophers.quote, user_id:User.all.sample.id, train_id: Train.all.sample.id)
+  end
+  15.times do
+    TrainComplaint.create(title: Faker::VForVendetta.unique.quote, description: Faker::WorldOfWarcraft.quote, user_id:User.all.sample.id, train_id: Train.all.sample.id)
   end
 
 puts "done making train complaints"
 
 
 puts "making station complaints"
-  50.times do
-  StationComplaint.create(title: Faker::GreekPhilosophers.quote, description: Faker::Simpsons.quote, user_id: User.all.sample.id, station_id: Station.all.sample.id)
+  15.times do
+  StationComplaint.create(title: Faker::MichaelScott.unique.quote, description: Faker::Simpsons.unique.quote, user_id: User.all.sample.id, station_id: Station.all.sample.id)
 end
+  15.times do
+  StationComplaint.create(title: Faker::HowIMetYourMother.unique.quote, description: Faker::StarWars.quote, user_id: User.all.sample.id, station_id: Station.all.sample.id)
+end
+  15.times do
+  StationComplaint.create(title: Faker::Superhero.unique.descriptor, description: Faker::StarWars.quote, user_id: User.all.sample.id, station_id: Station.all.sample.id)
+end
+  15.times do
+  StationComplaint.create(title: Faker::Superhero.unique.suffix, description: Faker::WorldOfWarcraft.unique.quote, user_id: User.all.sample.id, station_id: Station.all.sample.id)
+end
+  15.times do
+  TrainComplaint.create(title: Faker::FamilyGuy.quote, description: Faker::GreekPhilosophers.quote, user_id:User.all.sample.id, train_id: Train.all.sample.id)
+end
+
 puts "done making station complaints"
+
+
+# Faker::StarWars.character
+# Faker::StarWars.planet
 #
-#
-# puts "making train stations"
-#   ts1 = TrainStation.create(station_id: s1.id, train_id: t1.id)
-#   ts2 = TrainStation.create(station_id: s2.id, train_id: t2.id)
-#   ts3 = TrainStation.create(station_id: s3.id, train_id: t2.id)
-#   ts4 = TrainStation.create(station_id: s4.id, train_id: t2.id)
-#
-#
-# puts "done making train stations"
+# Faker::BojackHorseman.quote
+# Faker::FamilyGuy.quote
+# Faker::GreekPhilosophers.quote
+# Faker::HowIMetYourMother.quote
+# Faker::StarWars.quote
+# Faker::MichaelScott.quote
+# Faker::Simpsons.quote
