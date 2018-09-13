@@ -10,6 +10,17 @@
     <p>
       <%= @user.location %>
     </p>
+    <% if current_user.id == @user.id %>
+
+
+
+      <br>
+      <%= button_to "Edit Account", edit_user_path(@user), method: :get, class: "btn btn-success" %>
+      <br>
+      <%= button_to "Delete Account", @user, method: :delete, class: "btn btn-danger" %>
+
+
+    <% end %>
 
   </div>
 </div>
@@ -77,16 +88,3 @@
 
 
 <br>
-
-<% if current_user.id == @user.id %>
-<div class="container">
-
-
-  <br>
-  <%= button_to "Edit Account", edit_user_path(@user), method: :get, class: "btn btn-success btn-block" %>
-  <br>
-  <%= button_to "Delete Account", @user, method: :delete, class: "btn btn-danger btn-block" %>
-
-</div>
-
-<% end %>

@@ -1,11 +1,28 @@
-<h1>Complaint for the <%= link_to("#{@train_complaint.train.line} Line", train_path(@train_complaint.train))%></h1>
-<h2>User: <%= link_to @train_complaint.user.name, user_path(@train_complaint.user) %></h2>
+<div class="container">
+  <h1><%= "#{@train_complaint.train.line} Line Complaint" %></h1>
+  <br>
+  <div class="list-group">
+    <div class:"list-group-item">
 
-  <h3>Title:</h3>
-  <%= @train_complaint.title  %>
-  <br>
-  <br>
-  <h3>Description:</h3>
-  <p><%= @train_complaint.description %></p>
-  <h3>Created at:</h3>
-  <p><%= @train_complaint.created_at.strftime("%m/%d/%Y at %l:%M:%S %p") %></p>
+      <div class="media">
+        <div class="media-left">
+          <img src=<%= @train_complaint.user.photo  %> class="media-object" height="120" width="120">
+        </div>
+
+        <div class="media-body">
+          <h1 class="media-heading"><%=link_to(@train_complaint.user.name, user_path(@train_complaint.user))%></h1>
+          <h5 class="media-footer"><%= @train_complaint.created_at.strftime("%m/%d/%Y at %l:%M:%S %p") %></h5>
+          <div class="panel-group">
+            <div class="panel panel-warning">
+              <div class="panel-heading">
+                <h6 class="panel-title"><%="#{@train_complaint.title}" %></h6>
+              </div>
+                <div class="panel-body">
+                  <h4><%= @train_complaint.description %></h4>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

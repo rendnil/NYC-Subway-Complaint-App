@@ -1,11 +1,28 @@
-<h1>Complaint For <%= link_to("#{@station_complaint.station.name} Station", station_path(@station_complaint.station))%></h1>
-<h2>User: <%= link_to @station_complaint.user.name, user_path(@station_complaint.user) %></h2>
+<div class="container">
+  <h1><%= link_to(@station_complaint.station.name, station_path(@station_complaint.station))%> Station Complaint</h1>
+  <br>
+  <div class="list-group">
+    <div class:"list-group-item">
 
-  <h3>Title:</h3>
-  <%= @station_complaint.title  %>
-  <br>
-  <br>
-  <h3>Description:</h3>
-  <p><%= @station_complaint.description %></p>
-  <h3>Created at:</h3>
-  <p><%= @station_complaint.created_at.strftime("%m/%d/%Y at %l:%M:%S %p") %></p>
+      <div class="media">
+        <div class="media-left">
+          <img src=<%= @station_complaint.user.photo  %> class="media-object" height="120" width="120">
+        </div>
+
+        <div class="media-body">
+          <h1 class="media-heading"><%=link_to(@station_complaint.user.name, user_path(@station_complaint.user))%></h1>
+          <h5 class="media-footer"><%= @station_complaint.created_at.strftime("%m/%d/%Y at %l:%M:%S %p") %></h5>
+          <div class="panel-group">
+            <div class="panel panel-warning">
+              <div class="panel-heading">
+                <h6 class="panel-title"><%="#{@station_complaint.title}" %></h6>
+              </div>
+                <div class="panel-body">
+                  <h4><%= @station_complaint.description %></h4>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
