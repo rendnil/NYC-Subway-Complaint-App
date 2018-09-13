@@ -1,7 +1,9 @@
 <div class="row no-gutters">
-  <div class="col-12 col-sm-6 col-md-8">
+  <div class="col-12 col-sm-6 col-sm-7">
 
-  <img src="/subway_car_2.jpg" alt="" class="img-responsive img-rounded">
+    <img src="/subway_car_2.jpg" alt="" class="img-responsive img-rounded">
+
+
 
   </div>
 
@@ -9,11 +11,11 @@
     <div class="input-control">
 
 
-    <h3><%= flash[:notice] %></h3>
+      <h3><%= flash[:notice] %></h3>
 
-
-    <h1>Login</h1>
-    <%= form_tag login_path do %>
+<br>
+      <h1>Login</h1>
+      <%= form_tag login_path do %>
       <br>
       <%= label_tag :username %>
       <%= text_field_tag :name, nil,  class:"form-control" %>
@@ -24,9 +26,20 @@
       <br>
       <%= submit_tag "Login", class:"btn btn-success btn-block"  %>
       <br>
-    <% end %>
-    <%= button_to "Sign Up", new_user_path, method: :get, class: "btn btn-info btn-block" %>
-    <br>
-    </div>
+      <% end %>
+      <%= button_to "Sign Up", new_user_path, method: :get, class: "btn btn-info btn-block" %>
+      <br>
+      <div class="panel-group">
+        <div class="panel panel col-md-6 col-md-offset-3">
+          <div class="panel-heading">
+            <h6 class="panel-title">
+              <h5><a data-toggle="collapse" href="#collapse">Forgot Password?</a></h5>
+            </h6>
+          </div>
+          <div id= "collapse" class="panel-collapse col-md-offset">
+            <div class="panel-body">That Sucks Harder Than The MTA</div>
+          </div>
+        </div>
+      </div>
   </div>
 </div>

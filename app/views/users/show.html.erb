@@ -2,7 +2,9 @@
 
 <div class="media">
   <div class="media-left">
+    <% if current_user.photo %>
     <img src=<%=@user.photo  %> class="media-object" height="250" width="250">
+    <% end %>
 
 </div>
   <div class="media-body">

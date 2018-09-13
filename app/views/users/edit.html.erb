@@ -1,23 +1,41 @@
-<h2>Edit page for <%= @user.name %></h2>
-
-<%= form_for @user do |f| %>
-  <p><%= @user.errors.count %> prevented signup</p>
+<div class="col-6 col-md-4">
+<div class="form-group">
+  <h2>Edit <%= @user.name %>'s Profile</h2>
+  <%= form_for @user do |f| %>
+  <p>
+    <% if @user.errors.any? %>
+    <div class="alert alert-danger">
+    Unable To Make Changes:</p>
 
   <ol>
     <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+    <li>
+      <%= msg %>
+    </li>
+    <% end %>
+  </div>
     <% end %>
   </ol>
+  <br>
+  <div>
+    <%= f.label :username %>
+    <%= f.text_field :name, {class:"form-control", placeholder:"Enter A New Username"} %>
+  </div>
+  <br>
+  <div>
+    <h5><%= f.label :Password  %></h5>
+    <%= f.password_field :password, {class:"form-control", placeholder:"Enter A New Password"} %>
+  </div>
+  <br>
+  <div>
+    <%= f.label :avatar %>
+    <%= f.text_field :photo , {class:"form-control", placeholder:"Enter A New Picture URL"}%>
+  </div>
+  <br>
+    <!-- hidden_field(:object, :field, :value => params[:requestval]) -->
+    <%= f.hidden_field(:user_id, {value: session[:user_id]}) %>
+    <%= f.submit("Submit Changes", {class:"btn btn-info"}) %>
 
-  <%= f.label :username %>
-  <%= f.text_field :name %>
-
-  <%= f.label :password %>
-  <%= f.text_field :password %>
-
-  <%= f.label :avatar %>
-  <%= f.text_field :photo %>
-
-  <%= f.submit %>
-
-<% end %>
+  <% end %>
+</div>
+</div>
