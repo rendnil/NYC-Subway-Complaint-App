@@ -525,10 +525,10 @@ puts "making train complaints"
     TrainComplaint.create(title: Faker::MichaelScott.unique.quote, description: Faker::StarWars.unique.quote, user_id:User.all.sample.id, train_id: Train.all.sample.id)
   end
   15.times do
-    TrainComplaint.create(title: Faker::Robin.unique.quote, description: Faker::GreekPhilosophers.quote, user_id:User.all.sample.id, train_id: Train.all.sample.id)
+    TrainComplaint.create(title: Faker::Lebowski.unique.quote, description: Faker::GreekPhilosophers.quote, user_id:User.all.sample.id, train_id: Train.all.sample.id)
   end
   15.times do
-    TrainComplaint.create(title: Faker::VForVendetta.unique.quote, description: Faker::WorldOfWarcraft.quote, user_id:User.all.sample.id, train_id: Train.all.sample.id)
+    TrainComplaint.create(title: Faker::VForVendetta.unique.quote, description: Faker::RickAndMorty.quote, user_id:User.all.sample.id, train_id: Train.all.sample.id)
   end
 
 puts "done making train complaints"

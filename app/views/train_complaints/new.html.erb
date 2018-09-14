@@ -2,6 +2,7 @@
   <h1>Lodge A Formal Train Complaint</h1>
   <div class="form-group">
     <br>
+    <%= render 'layouts/errors', obj: @train_complaint%>
     <%= form_for @train_complaint do |f| %>
     <div>
       <h4><%= f.label :Title %></h4>

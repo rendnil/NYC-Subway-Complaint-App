@@ -7,8 +7,9 @@
     <div class:"list-group-item">
       <div class="media">
         <div class="media-left">
+          <%if user.photo %>
           <img src=<%= user.photo  %> class="media-object" height="50" width="50">
-
+          <%end %>
       </div>
         <div class="media-body">
           <h3 class="media-heading"><%=link_to(user.name, user_path(user))%>   <span class="badge"> <%= (user.train_complaints.count + user.station_complaints.count) %></span></h3>

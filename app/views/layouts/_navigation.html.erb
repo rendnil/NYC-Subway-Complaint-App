@@ -20,6 +20,9 @@
 
 
         <!-- <li><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
+        <%if current_user  %>
+        <li><%= link_to "#{current_user.name}'s Profile", user_path(current_user) %></li>
+        <%end %>
         <li><%= link_to "Stations", stations_path %></li>
         <li><%= link_to "Trains", trains_path %></li>
         <li><%= link_to "Users",users_path %></li>
@@ -30,11 +33,19 @@
             <li><%= link_to "Station Complaint", new_station_complaint_path %></li>
             <li role="separator" class="divider"></li>
             <li><%= link_to "Train Complaint", new_train_complaint_path %></li>
+
           </ul>
+        </li>
+
+        <li>
+          <%= button_to("Don't Click This!", pet_shop_boys_path, {data:{confirm:'Are you sure? This feature has not been tested!'}, method: :get, class: "btn btn-danger navbar-btn"}) %>
         </li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
+
+
+
         <% if logged_in? %>
         <li>
           <%= button_to("Logout", logout_path, {method: :delete, class: "btn btn-default navbar-btn"}) %>
