@@ -38,8 +38,10 @@
         </li>
 
         <li>
+          <% if logged_in? && current_user.name == "Andrew"  %>
           <%= button_to("Don't Click This!", pet_shop_boys_path, {data:{confirm:'Are you sure? This feature has not been tested!'}, method: :get, class: "btn btn-danger navbar-btn"}) %>
         </li>
+         <%end  %>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
