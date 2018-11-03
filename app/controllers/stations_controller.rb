@@ -11,11 +11,4 @@ class StationsController < ApplicationController
 
 
 
-
-
-
-
-
-
-
 end

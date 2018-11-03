@@ -1,9 +1,12 @@
+<!-- Users index page-->
+
 <div class="container">
   <h1>Users</h1>
+  <!--chart dispaling users ordered by number of complaints -->
   <%= column_chart User.most_complaints, ytitle: "Total Complaints", width: "100%" %>
   <div class="list-group">
     <%@users.each do |user|  %>
-    <!-- <%=link_to(user.name, user_path(user), class: "list-group-item")%> -->
+
     <div class:"list-group-item">
       <div class="media">
         <div class="media-left">

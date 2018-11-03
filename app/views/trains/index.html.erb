@@ -1,9 +1,10 @@
 
 
-
+<!-- Subway line index page-->
 
 <div class="container">
   <h1>Trains</h1>
+  <!-- chart to show trains listed in ascending order by complaints-->
   <%= area_chart Train.most_complaints, xtitle: "Line", ytitle: "Complaints", width: "100%" %>
 
   <div class="list-group">

@@ -1,7 +1,10 @@
+<!--user profile page -->
+
 <h3><%= flash[:notice] %></h3>
 
 <div class="media">
   <div class="media-left">
+    <!-- check to see if user has a profile photo-->
     <% if @user.photo%>
     <img src=<%=@user.photo  %> class="media-object" height="250" width="250">
     <% end %>
@@ -14,20 +17,17 @@
     </p>
     <% if current_user.id == @user.id %>
 
-
-
       <br>
       <%= button_to "Edit Account", edit_user_path(@user), method: :get, class: "btn btn-success" %>
       <br>
       <%= button_to "Delete Account", @user, method: :delete, class: "btn btn-danger" %>
-
 
     <% end %>
 
   </div>
 </div>
 
-
+<!--table for showing subway station complaints -->
 <div class="container">
     <h2>Station Complaints</h2>
 
@@ -58,7 +58,7 @@
     </table>
   </div>
 
-
+<!-- table for showing subway line complaints-->
   <div class="container">
     <h2>Train Complaints</h2>
     <table class="table table-hover">

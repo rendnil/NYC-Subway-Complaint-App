@@ -13,20 +13,21 @@
 
       <h3><%= flash[:notice] %></h3>
 
-
+<!--form for user login  -->
       <h1>Login</h1>
       <%= form_tag login_path do %>
-      <br>
-      <%= label_tag :username %>
-      <%= text_field_tag :name, nil,  class:"form-control" %>
-      <br>
-      <%= label_tag :password %>
-      <%= password_field_tag :password, nil, class:"form-control"%>
-
         <br>
-      <%= submit_tag "Login", class:"btn btn-success btn-block"  %>
+        <%= label_tag :username %>
+        <%= text_field_tag :name, nil,  class:"form-control" %>
+        <br>
+        <%= label_tag :password %>
+        <%= password_field_tag :password, nil, class:"form-control"%>
+        <br>
+        <%= submit_tag "Login", class:"btn btn-success btn-block"  %>
       <br>
       <% end %>
+
+<!-- link to sign up form -->
       <%= button_to "Sign Up", new_user_path, method: :get, class: "btn btn-info btn-block" %>
       <br>
       <div class="panel-group panel-group-block text-center">
@@ -36,6 +37,8 @@
               <h5><a data-toggle="collapse" href="#collapse1">Forgot Password?</a></h5>
             </h6>
           </div>
+
+      <!-- Easter egg-->    
           <div id= "collapse1" class="panel-collapse collapse">
             <div class="panel-body">That Sucks Harder Than The MTA</div>
           </div>

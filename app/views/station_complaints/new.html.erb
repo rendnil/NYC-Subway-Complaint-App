@@ -2,28 +2,31 @@
   <h1>Lodge A Formal Station Complaint</h1>
   <div class="form-group">
     <br>
+    <!-- check if there are validation issues-->
     <%= render 'layouts/errors', obj: @station_complaint%>
-    <%= form_for @station_complaint do |f| %>
-    <div>
-      <h4><%= f.label :Title %></h4>
-      <%= f.text_field :title, {class:"form-control", placeholder:"Complaint Title"} %>
-    </div>
-    <br>
-    <div>
-      <h5><%= f.label :Description  %></h5>
-      <%= f.text_area :description, {class:"form-control", placeholder:"Complaint Description"} %>
-    </div>
-    <br>
-    <div>
-      <%= f.label "Train"%>
-      <%= f.collection_select(:station_id, Station.all, :id, :name, {class:"custom-select", style:"width:200px;"}) %>
 
-    </div>
-    <br>
-      <!-- hidden_field(:object, :field, :value => params[:requestval]) -->
-      <%= f.hidden_field(:user_id, {value: session[:user_id]}) %>
-      <%= f.submit("Submit Complaint", {class:"btn btn-danger"}) %>
-    </div>
+    <!-- form for creating a station complaint -->
+    <%= form_for @station_complaint do |f| %>
+      <div>
+        <h4><%= f.label :Title %></h4>
+        <%= f.text_field :title, {class:"form-control", placeholder:"Complaint Title"} %>
+      </div>
+      <br>
+      <div>
+        <h5><%= f.label :Description  %></h5>
+        <%= f.text_area :description, {class:"form-control", placeholder:"Complaint Description"} %>
+      </div>
+      <br>
+      <div>
+        <%= f.label "Train"%>
+        <%= f.collection_select(:station_id, Station.all, :id, :name, {class:"custom-select", style:"width:200px;"}) %>
+
+      </div>
+      <br>
+      
+        <%= f.hidden_field(:user_id, {value: session[:user_id]}) %>
+        <%= f.submit("Submit Complaint", {class:"btn btn-danger"}) %>
+      </div>
 
     <% end %>
   </div>
